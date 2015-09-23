@@ -33,6 +33,8 @@ no <leader>p :CtrlP<cr>
 no <leader>. :CtrlPTag<cr>
 nmap <F8> :TagbarToggle<CR>
 
+map 0 ^
+
 set mouse=a
 set nowrap
 
