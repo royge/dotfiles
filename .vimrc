@@ -33,7 +33,9 @@ no <leader>p :CtrlP<cr>
 no <leader>. :CtrlPTag<cr>
 nmap <F8> :TagbarToggle<CR>
 
-map 0 ^
+" Maximize current split window
+map <leader>+ <C-W>_<C-W><Bar>
+map <leader>= <C-W>=
 
 set mouse=a
 set nowrap
@@ -84,3 +86,10 @@ let g:php_cs_fixer_php_path = "php"               " Path to PHP
 let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
 let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
 let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
+
+" Grep configurations
+let Grep_Skip_Dirs = ".git"
+let Grep_Skip_Files = "*.swp *.min.js"
+
+" Set the vertical split character to  a space (there is a single space after '\ ')
+:set fillchars+=vert:\ 
