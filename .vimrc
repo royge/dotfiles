@@ -1,5 +1,22 @@
-execute pathogen#infect()
-call pathogen#helptags()
+call plug#begin()
+Plug 'scrooloose/nerdtree'
+Plug 'vim-scripts/DirDiff.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'kien/ctrlp.vim'
+Plug 'garyburd/go-explorer'
+Plug 'yegappan/grep'
+Plug 'nanotech/jellybeans.vim'
+Plug 'Shutnik/jshint2.vim'
+Plug 'Shougo/neocomplete.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+Plug 'joonty/vdebug'
+Plug 'bling/vim-airline'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go'
+Plug 'sukima/xmledit'
+call plug#end()
 
 " Smart way to move between windows
 no <C-j> <C-W>j
@@ -33,7 +50,6 @@ no <leader>p :CtrlP<cr>
 no <leader>. :CtrlPTag<cr>
 nmap <F8> :TagbarToggle<CR>
 
-" Maximize current split window
 map <leader>+ <C-W>_<C-W><Bar>
 map <leader>= <C-W>=
 
@@ -59,9 +75,10 @@ inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+autocmd CompleteDone * pclose
 
 set list listchars=tab:\›\ ,trail:-,extends:>,precedes:<,eol:¬
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+set runtimepath^=~/.vim/plugged/ctrlp.vim
 set pastetoggle=<F2>
 hi default DbgBreakptLine term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
 hi default DbgBreakptSign term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
@@ -87,9 +104,6 @@ let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by defaul
 let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
 let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 
-" Grep configurations
-let Grep_Skip_Dirs = ".git"
-let Grep_Skip_Files = "*.swp *.min.js"
-
-" Set the vertical split character to  a space (there is a single space after '\ ')
+nnoremap <silent> <F3> :Rgrep<CR>
+let NERDTreeIgnore=['static$[[dir]]', '.pyc$[[file]]']
 :set fillchars+=vert:\ 
