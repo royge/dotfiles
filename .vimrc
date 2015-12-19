@@ -18,6 +18,9 @@ Plug 'fatih/vim-go'
 Plug 'sukima/xmledit'
 call plug#end()
 
+" execute pathogen#infect()
+" call pathogen#helptags()
+
 " Smart way to move between windows
 no <C-j> <C-W>j
 no <C-k> <C-W>k
@@ -104,6 +107,11 @@ let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by defaul
 let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
 let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 
+" Grep configurations
+let Grep_Skip_Dirs = ".git"
+let Grep_Skip_Files = "*.swp *.min.js"
 nnoremap <silent> <F3> :Rgrep<CR>
+
+" Set the vertical split character to  a space (there is a single space after '\ ')
 let NERDTreeIgnore=['static$[[dir]]', '.pyc$[[file]]']
 :set fillchars+=vert:\ 
