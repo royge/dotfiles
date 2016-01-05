@@ -17,7 +17,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go'
 Plug 'sukima/xmledit'
 Plug 'mileszs/ack.vim'
-Plug 'placticboy/vim-markdown'
+Plug 'plasticboy/vim-markdown'
 Plug 'majutsushi/tagbar'
 Plug 'stephpy/vim-php-cs-fixer'
 call plug#end()
