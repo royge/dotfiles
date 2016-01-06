@@ -20,6 +20,7 @@ Plug 'mileszs/ack.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'majutsushi/tagbar'
 Plug 'stephpy/vim-php-cs-fixer'
+Plug 'evidens/vim-twig'
 call plug#end()
 
 " execute pathogen#infect()
