@@ -20,7 +20,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'majutsushi/tagbar'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'evidens/vim-twig'
-Plug 'Valloric/YouCompleteMe.git'
+Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
 " execute pathogen#infect()
