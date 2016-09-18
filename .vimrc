@@ -20,7 +20,9 @@ Plug 'plasticboy/vim-markdown'
 Plug 'majutsushi/tagbar'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'evidens/vim-twig'
+Plug 'mxw/vim-jsx'
 Plug 'Valloric/YouCompleteMe'
+Plug 'majutsushi/tagbar'
 call plug#end()
 
 " execute pathogen#infect()
@@ -102,5 +104,9 @@ let Grep_Skip_Files = "*.swp *.min.js"
 nnoremap <silent> <F3> :Rgrep<CR>
 
 " Set the vertical split character to  a space (there is a single space after '\ ')
-let NERDTreeIgnore=['static$[[dir]]', '.pyc$[[file]]']
+"let NERDTreeIgnore=['static$[[dir]]', '.pyc$[[file]]']
+let NERDTreeIgnore=['.pyc$[[file]]', '.retry$[[file]]']
 :set fillchars+=vert:\ 
+
+" JSX Config
+let g:jsx_ext_required = 0
