@@ -25,6 +25,7 @@ Plug 'joonty/vdebug'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'mxw/vim-jsx'
 Plug 'davidhalter/jedi-vim'
+Plug 'craigemery/vim-autotag'
 call plug#end()
 
 " execute pathogen#infect()
@@ -99,6 +100,10 @@ set pastetoggle=<F2>
 hi default DbgBreakptLine term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
 hi default DbgBreakptSign term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
 
+let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_php_checkers = ['phpcs']
+let g:syntastic_php_phpcs_args = "--standard=PSR2"
+
 " JSHint
 let jshint2_read = 1
 let jshint2_save = 1
@@ -132,3 +137,4 @@ let NERDTreeIgnore=['.pyc$[[file]]', '.retry$[[file]]']
 
 " JSX configurations.
 let g:jsx_ext_required = 0
+set tags=./tags,tags;$HOME
