@@ -26,6 +26,10 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'mxw/vim-jsx'
 Plug 'davidhalter/jedi-vim'
 Plug 'craigemery/vim-autotag'
+Plug 'tmhedberg/SimpylFold'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'nvie/vim-flake8'
+Plug 'FredKSchott/CoVim'
 call plug#end()
 
 " execute pathogen#infect()
@@ -40,7 +44,10 @@ no <C-l> <C-W>l
 " My colors
 color jellybeans
 
+let python_highlight_all=1
+
 syntax on
+
 filetype plugin indent on
 
 au BufNewFile,BufRead *.theme set filetype=php
@@ -49,8 +56,17 @@ au BufNewFile,BufRead *.module set filetype=php
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set textwidth=79
 set expandtab
+set autoindent
+set fileformat=unix
 set number
+
+" UTF8 support
+set encoding=utf-8
+
+set clipboard=unnamed
+
 " Disable arrow keys to avoid the bad habbit of using it.
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -125,6 +141,10 @@ let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by defaul
 let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
 let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 
+" YCM
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 " Grep configurations
 let Grep_Skip_Dirs = ".git"
 let Grep_Skip_Files = "*.swp *.min.js"
@@ -138,3 +158,26 @@ let NERDTreeIgnore=['.pyc$[[file]]', '.retry$[[file]]']
 " JSX configurations.
 let g:jsx_ext_required = 0
 set tags=./tags,tags;$HOME
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+let g:phpcomplete_index_composer_command = 'composer'
+
+" SimpylFold
+let g:SimpylFold_docstring_preview=1
+
+" Python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
+
