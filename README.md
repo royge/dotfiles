@@ -26,11 +26,21 @@ Getting Started
 
 4. Run ```vim``` and execute ```:PlugInstall```
 
-5. Create ```.tmux.conf``` symlink.
+5. Install ```tmux```
+
+    ```
+    sudo apt-get install tmux
+    ```
+
+6 Create ```.tmux.conf``` symlink.
 
     ```
     ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
     ```
+
+7 Install powerline
+
+    ```pip install powerline-status```
 
 TODO
 ----
