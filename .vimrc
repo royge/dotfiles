@@ -171,6 +171,9 @@ let g:phpcomplete_index_composer_command = 'composer'
 " SimpylFold
 let g:SimpylFold_docstring_preview=1
 
+" User powerline fonts
+let g:airline_powerline_fonts = 1
+
 " Python with virtualenv support
 py << EOF
 import os
@@ -180,4 +183,3 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 EOF
-
