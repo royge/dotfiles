@@ -26,11 +26,9 @@ Getting Started
 
 4. Run ```vim``` and execute ```:PlugInstall```
 
-5. Install ```tmux```
+5. Install tmux
 
-    ```
-    sudo apt-get install tmux
-    ```
+    ```sudo apt-get install tmux```
 
 6 Create ```.tmux.conf``` symlink.
 
