@@ -11,7 +11,7 @@ Getting Started
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     ```
-    
+
 2. Clone repo.
 
     ```
@@ -39,6 +39,22 @@ Getting Started
 7. Install powerline
 
     ```pip install powerline-status```
+
+8. Install powerline fonts.
+
+    ```
+    git clone https://github.com/powerline/fonts
+    cd fonts
+    ./install
+    mkdir ~/.fonts
+    mv ~/.local/share/fonts/* ~/.fonts
+    wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+    wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+    mv PowerlineSymbols.otf ~/.fonts/
+    fc-cache -vf ~/.fonts/
+    mkdir ~/.config/fontconfig && mkdir ~/.config/fontconfig/conf.d/
+    mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+    ```
 
 TODO
 ----
