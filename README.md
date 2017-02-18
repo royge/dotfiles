@@ -56,6 +56,12 @@ Getting Started
     mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
     ```
 
+9. Install Tmux Themepack.
+
+    ```
+    git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
+    ```
+
 TODO
 ----
 
