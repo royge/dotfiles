@@ -58,6 +58,14 @@ au BufNewFile,BufRead *.py
     \ set softtabstop=4 |
     \ set shiftwidth=4 |
     \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+
+au BufNewFile,BufRead *.go
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
     \ set noexpandtab |
     \ set autoindent |
     \ set fileformat=unix |
@@ -175,6 +183,9 @@ let g:SimpylFold_docstring_preview=1
 
 " User powerline fonts
 let g:airline_powerline_fonts = 1
+
+" Allow ctrp to search hidden files
+let g:ctrlp_dotfiles = 1
 
 " Python with virtualenv support
 py << EOF
