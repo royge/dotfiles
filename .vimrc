@@ -57,11 +57,11 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set autoindent
+set expandtab
 set fileformat=unix
 
 au BufNewFile,BufRead *.py
     \ set textwidth=79 |
-    \ set expandtab |
 
 au BufNewFile,BufRead *.go
     \ set noexpandtab |
