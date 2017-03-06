@@ -15,7 +15,7 @@ Getting Started
 2. Clone repo.
 
     ```
-    git clone https://github.com/r0y3/dotfiles.git
+    git clone https://github.com/rooye/dotfiles.git
     ```
 
 3. Create ```.vimrc``` symlink.
