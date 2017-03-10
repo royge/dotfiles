@@ -8,7 +8,7 @@ Plug 'yegappan/grep'
 Plug 'nanotech/jellybeans.vim'
 Plug 'Shutnik/jshint2.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'joonty/vdebug'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-fugitive'
@@ -30,6 +30,7 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
 Plug 'FredKSchott/CoVim'
+Plug 'vim-scripts/SQLUtilities'
 call plug#end()
 
 " execute pathogen#infect()
@@ -65,6 +66,11 @@ au BufNewFile,BufRead *.py
 
 au BufNewFile,BufRead *.go
     \ set noexpandtab |
+
+au BufNewFile,BufRead *.tf
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
 
 set number
 
@@ -125,6 +131,7 @@ hi default DbgBreakptSign term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ff
 let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_php_checkers = ['phpcs']
 let g:syntastic_php_phpcs_args = "--standard=PSR2"
+let g:syntastic_javascript_checkers = ['eslint']
 
 " JSHint
 let jshint2_read = 1
