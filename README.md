@@ -45,7 +45,7 @@ Getting Started
     ```
     git clone https://github.com/powerline/fonts
     cd fonts
-    ./install
+    ./install.sh
     mkdir ~/.fonts
     mv ~/.local/share/fonts/* ~/.fonts
     wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
