@@ -12,35 +12,42 @@ Getting Started
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     ```
 
-2. Clone repo.
+1. Clone repo.
 
     ```
     git clone https://github.com/royge/dotfiles.git
     ```
 
-3. Create ```.vimrc``` symlink.
+1. Create ```.vimrc``` symlink.
 
     ```
     ln -s ~/dotfiles/.vimrc ~/.vimrc
     ```
 
-4. Run ```vim``` and execute ```:PlugInstall```
+1. Run ```vim``` and execute ```:PlugInstall```
 
-5. Install ```tmux```
+1. Add `YCM` completion supports
+
+    ```
+    cd ~/.vim/plugged/YouCompleteMe
+    python3 ./install.py --gocode-completer --tern-completer
+    ```
+
+1. Install ```tmux```
 
     ```sudo apt-get install tmux```
 
-6. Create ```.tmux.conf``` symlink.
+1. Create ```.tmux.conf``` symlink.
 
     ```
     ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
     ```
 
-7. Install powerline
+1. Install powerline
 
     ```pip install powerline-status```
 
-8. Install powerline fonts.
+1. Install powerline fonts.
 
     ```
     git clone https://github.com/powerline/fonts
@@ -56,13 +63,13 @@ Getting Started
     mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
     ```
 
-9. Install Tmux Themepack.
+1. Install Tmux Themepack.
 
     ```
     git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
     ```
 
-10. Reboot.
+1. Reboot.
 
 TODO
 ----
