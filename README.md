@@ -5,6 +5,8 @@ Configuration files on my development machine.
 Getting Started
 ---------------
 
+1. Build [vim 8 from source](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source)
+
 1. Install vim-plug
 
     ```
