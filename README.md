@@ -2,8 +2,7 @@
 
 Configuration files on my development machine.
 
-Getting Started
----------------
+## Getting Started
 
 1. Build [vim 8 from source](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source)
 
@@ -72,6 +71,18 @@ Getting Started
     ```
 
 1. Reboot.
+
+## Python + VIM
+
+- [VIM and Python - a Match Made in Heaven](https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/)
+
+## Go + VIM
+
+- TODO
+
+## PHP + VIM
+
+- TODO
 
 TODO
 ----
