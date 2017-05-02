@@ -29,8 +29,8 @@ Plug 'craigemery/vim-autotag'
 Plug 'tmhedberg/SimpylFold'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
-Plug 'FredKSchott/CoVim'
 Plug 'vim-scripts/SQLUtilities'
+Plug 'miyakogi/seiya.vim'
 call plug#end()
 
 " execute pathogen#infect()
@@ -129,8 +129,8 @@ hi default DbgBreakptLine term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ff
 hi default DbgBreakptSign term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
 
 let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_php_checkers = ['phpcs']
-let g:syntastic_php_phpcs_args = "--standard=PSR2"
+let g:syntastic_php_checkers = ['php', 'phpcs']
+let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 let g:syntastic_javascript_checkers = ['eslint']
 
 " JSHint
@@ -145,8 +145,7 @@ let jshint2_max_height = 12
 " PHP CS Fixer
 " If php-cs-fixer is in $PATH, you don't need to define line below
 " let g:php_cs_fixer_path = "~/php-cs-fixer.phar" " define the path to the php-cs-fixer.phar
-let g:php_cs_fixer_level = "symfony"              " which level ?
-let g:php_cs_fixer_config = "default"             " configuration
+let g:php_cs_fixer_rules = "@PSR2"
 let g:php_cs_fixer_php_path = "php"               " Path to PHP
 " If you want to define specific fixers:
 "let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
@@ -190,12 +189,15 @@ let g:airline_powerline_fonts = 1
 " Allow ctrp to search hidden files
 let g:ctrlp_dotfiles = 1
 
+" Transparent vim
+let g:seiya_auto_enable=1
+
 " Python with virtualenv support
-python3 << EOF
+py << EOF
 import os
 import sys
 if 'VIRTUAL_ENV' in os.environ:
   project_base_dir = os.environ['VIRTUAL_ENV']
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  exec(open(activate_this).read(), dict(__file__=activate_this))
+  execfile(activate_this, dict(__file__=activate_this))
 EOF
