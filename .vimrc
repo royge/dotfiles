@@ -31,6 +31,13 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
 Plug 'vim-scripts/SQLUtilities'
 Plug 'miyakogi/seiya.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leshill/vim-json'
+Plug 'junegunn/fzf.vim'
+Plug 'moll/vim-node'
+Plug 'groenewege/vim-less'
+Plug 'ternjs/tern_for_vim'
+Plug 'shawncplus/phpcomplete.vim'
 call plug#end()
 
 " execute pathogen#infect()
@@ -68,6 +75,16 @@ au BufNewFile,BufRead *.go
     \ set noexpandtab |
 
 au BufNewFile,BufRead *.tf
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+
+au BufNewFile,BufRead *.yml
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+
+au BufNewFile,BufRead Vagrantfile
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
@@ -157,6 +174,9 @@ let g:php_cs_fixer_verbose = 0                    " Return the output of command
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+" tern
+map <leader>j  :TernDef<CR>
+
 " Grep configurations
 let Grep_Skip_Dirs = ".git"
 let Grep_Skip_Files = "*.swp *.min.js"
@@ -190,7 +210,14 @@ let g:airline_powerline_fonts = 1
 let g:ctrlp_dotfiles = 1
 
 " Transparent vim
-let g:seiya_auto_enable=1
+let g:seiya_auto_enable = 1
+
+let g:javascript_plugin_flow = 1
+
+"enable keyboard shortcuts
+let g:tern_map_keys=1
+"show argument hints
+let g:tern_show_argument_hints='on_hold'
 
 " Python with virtualenv support
 py << EOF
