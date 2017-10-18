@@ -38,6 +38,11 @@ Plug 'moll/vim-node'
 Plug 'groenewege/vim-less'
 Plug 'ternjs/tern_for_vim'
 Plug 'shawncplus/phpcomplete.vim'
+Plug 'johngrib/vim-game-code-break'
+Plug 'chr4/nginx.vim'
+Plug 'pearofducks/ansible-vim'
+Plug 'lepture/vim-jinja'
+Plug 'prettier/vim-prettier'
 call plug#end()
 
 " execute pathogen#infect()
@@ -71,10 +76,21 @@ set fileformat=unix
 au BufNewFile,BufRead *.py
     \ set textwidth=79 |
 
+au BufNewFile,BufRead *.php
+    \ set textwidth=79 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+
 au BufNewFile,BufRead *.go
+    \ set textwidth=79 |
     \ set noexpandtab |
 
 au BufNewFile,BufRead *.tf
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+
+au BufNewFile,BufRead *.js
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
@@ -88,6 +104,11 @@ au BufNewFile,BufRead Vagrantfile
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
+
+au BufNewFile,BufRead *.j2 set ft=jinja
+au BufNewFile,BufRead *.conf.j2 set ft=nginx
+au BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
+au BufRead,BufNewFile */ansible/*.yml set filetype=ansible
 
 set number
 
@@ -115,7 +136,7 @@ nmap <F8> :TagbarToggle<CR>
 map <leader>+ <C-W>_<C-W><Bar>
 map <leader>= <C-W>=
 
-set mouse=a
+set mouse=
 set nowrap
 
 let g:acp_enableAtStartup = 0
@@ -149,6 +170,7 @@ let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_php_checkers = ['php', 'phpcs']
 let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 " JSHint
 let jshint2_read = 1
@@ -176,6 +198,10 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " tern
 map <leader>j  :TernDef<CR>
+map <leader>jr  :TernRefs<CR>
+map <leader>jd  :TernDoc<CR>
+map <leader>jt  :TernType<CR>
+map <leader>jn  :TernRename<CR>
 
 " Grep configurations
 let Grep_Skip_Dirs = ".git"
