@@ -43,7 +43,7 @@ Plug 'johngrib/vim-game-code-break'
 Plug 'chr4/nginx.vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'lepture/vim-jinja'
-Plug 'prettier/vim-prettier'
+Plug 'w0rp/ale'
 call plug#end()
 
 " execute pathogen#infect()
@@ -245,6 +245,11 @@ let g:javascript_plugin_flow = 1
 let g:tern_map_keys=1
 "show argument hints
 let g:tern_show_argument_hints='on_hold'
+
+"FZF mappings
+nmap ; :Buffers<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>t :Tags<CR>
 
 " Python with virtualenv support
 py << EOF
