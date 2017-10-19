@@ -33,6 +33,7 @@ Plug 'vim-scripts/SQLUtilities'
 Plug 'miyakogi/seiya.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'leshill/vim-json'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'moll/vim-node'
 Plug 'groenewege/vim-less'
