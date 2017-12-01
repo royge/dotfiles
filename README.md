@@ -78,11 +78,7 @@ Configuration files on my development machine.
 
 ## Go + VIM
 
-- TODO
-
-## PHP + VIM
-
-- TODO
+- [Go development plugin for Vim](https://github.com/fatih/vim-go)
 
 TODO
 ----
