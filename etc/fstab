@@ -9,6 +9,6 @@
 UUID=b03b6e57-e5a9-4d34-87be-0b3baefe1b8f /               ext4    errors=remount-ro 0       1
 # swap was on /dev/sda6 during installation
 UUID=95f1c59f-2ac5-4811-82ba-b0093fb23bce none            swap    sw              0       0
-UUID=88765A33765A21EC  /home/r0y3/data   ntfs-3g  user,exec,umask=002,uid=r0y3,gid=r0y3  0   0
+UUID=88765A33765A21EC  /home/royge/data   ntfs-3g  user,exec,umask=002,uid=royge,gid=royge  0   0
 
-//<ip address>/Development /home/r0y3/shared/development cifs uid=r0y3,gid=r0y3,credentials=/home/r0y3/.sharedcredentials
+//<ip address>/Development /home/royge/shared/development cifs uid=royge,gid=royge,credentials=/home/royge/.sharedcredentials
