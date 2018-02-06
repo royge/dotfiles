@@ -2,7 +2,6 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/DirDiff.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'kien/ctrlp.vim'
 Plug 'garyburd/go-explorer'
 Plug 'yegappan/grep'
 Plug 'nanotech/jellybeans.vim'
@@ -140,6 +139,8 @@ map <leader>= <C-W>=
 set mouse=
 set nowrap
 
+let g:ale_emit_conflict_warnings = 0
+
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -232,9 +233,6 @@ let g:SimpylFold_docstring_preview=1
 
 " User powerline fonts
 let g:airline_powerline_fonts = 1
-
-" Allow ctrp to search hidden files
-let g:ctrlp_dotfiles = 1
 
 " Transparent vim
 let g:seiya_auto_enable = 1
