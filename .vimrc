@@ -8,7 +8,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'Shutnik/jshint2.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
-Plug 'joonty/vdebug'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -17,8 +16,6 @@ Plug 'sukima/xmledit'
 Plug 'mileszs/ack.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'majutsushi/tagbar'
-Plug 'stephpy/vim-php-cs-fixer'
-Plug 'evidens/vim-twig'
 Plug 'Valloric/YouCompleteMe'
 Plug 'joonty/vdebug'
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -37,12 +34,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'moll/vim-node'
 Plug 'groenewege/vim-less'
 Plug 'ternjs/tern_for_vim'
-Plug 'shawncplus/phpcomplete.vim'
 Plug 'johngrib/vim-game-code-break'
 Plug 'chr4/nginx.vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'lepture/vim-jinja'
 Plug 'w0rp/ale'
+Plug 'guileen/vim-node-dict'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'myhere/vim-nodejs-complete'
 call plug#end()
 
 " execute pathogen#infect()
@@ -63,9 +62,6 @@ syntax on
 
 filetype plugin indent on
 
-au BufNewFile,BufRead *.theme set filetype=php
-au BufNewFile,BufRead *.module set filetype=php
-
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -75,11 +71,6 @@ set fileformat=unix
 
 au BufNewFile,BufRead *.py
     \ set textwidth=79 |
-
-au BufNewFile,BufRead *.php
-    \ set textwidth=79 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
 
 au BufNewFile,BufRead *.go
     \ set textwidth=79 |
@@ -169,8 +160,6 @@ hi default DbgBreakptLine term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ff
 hi default DbgBreakptSign term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
 
 let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_php_checkers = ['php', 'phpcs']
-let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
@@ -182,17 +171,6 @@ let jshint2_color = 0
 let jshint2_error = 0
 let jshint2_min_height = 3
 let jshint2_max_height = 12
-
-" PHP CS Fixer
-" If php-cs-fixer is in $PATH, you don't need to define line below
-" let g:php_cs_fixer_path = "~/php-cs-fixer.phar" " define the path to the php-cs-fixer.phar
-let g:php_cs_fixer_rules = "@PSR2"
-let g:php_cs_fixer_php_path = "php"               " Path to PHP
-" If you want to define specific fixers:
-"let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
-let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
-let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
-let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 
 " YCM
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -226,8 +204,6 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
 
-let g:phpcomplete_index_composer_command = 'composer'
-
 " SimpylFold
 let g:SimpylFold_docstring_preview=1
 
@@ -248,6 +224,20 @@ let g:tern_show_argument_hints='on_hold'
 nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>t :Tags<CR>
+
+"vim-node-dict
+au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
+
+"vim-nodejs-complete
+let g:nodejs_complete_config = {
+\  'js_compl_fn': 'jscomplete#CompleteJS',
+\  'max_node_compl_len': 15
+\}
+
+"spell check
+autocmd FileType mail setlocal spell spelllang=en_us
+autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
+autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
 
 " Python with virtualenv support
 py << EOF
