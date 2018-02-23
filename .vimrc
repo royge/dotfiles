@@ -96,6 +96,9 @@ au BufNewFile,BufRead Vagrantfile
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
 
+au BufNewFile,BufRead *.md
+    \ set textwidth=79 |
+
 au BufNewFile,BufRead *.j2 set ft=jinja
 au BufNewFile,BufRead *.conf.j2 set ft=nginx
 au BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
@@ -119,9 +122,7 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
-no <leader>n :NERDTreeToggle<cr>
-no <leader>p :CtrlP<cr>
-no <leader>. :CtrlPTag<cr>
+no <leader>N :NERDTreeToggle<cr>
 nmap <F8> :TagbarToggle<CR>
 
 map <leader>+ <C-W>_<C-W><Bar>
