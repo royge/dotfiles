@@ -2,7 +2,6 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/DirDiff.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'kien/ctrlp.vim'
 Plug 'garyburd/go-explorer'
 Plug 'yegappan/grep'
 Plug 'nanotech/jellybeans.vim'
@@ -18,7 +17,6 @@ Plug 'sukima/xmledit'
 Plug 'mileszs/ack.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'majutsushi/tagbar'
-Plug 'stephpy/vim-php-cs-fixer'
 Plug 'evidens/vim-twig'
 Plug 'Valloric/YouCompleteMe'
 Plug 'joonty/vdebug'
@@ -31,7 +29,11 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
 Plug 'vim-scripts/SQLUtilities'
 Plug 'miyakogi/seiya.vim'
+" If installed using Homebrew
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
+
 
 " execute pathogen#infect()
 " call pathogen#helptags()
@@ -51,9 +53,6 @@ syntax on
 
 filetype plugin indent on
 
-au BufNewFile,BufRead *.theme set filetype=php
-au BufNewFile,BufRead *.module set filetype=php
-
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -72,12 +71,20 @@ au BufNewFile,BufRead *.tf
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
 
+au BufNewFile,BufRead *.js
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+
 set number
 
 " UTF8 support
 set encoding=utf-8
 
 set clipboard=unnamed
+
+"if $TMUX == ''
+"    set clipboard+=unnamed
+"endif
 
 " Disable arrow keys to avoid the bad habbit of using it.
 noremap <Up> <NOP>
@@ -90,9 +97,7 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
-no <leader>n :NERDTreeToggle<cr>
-no <leader>p :CtrlP<cr>
-no <leader>. :CtrlPTag<cr>
+no <leader>N :NERDTreeToggle<cr>
 nmap <F8> :TagbarToggle<CR>
 
 map <leader>+ <C-W>_<C-W><Bar>
@@ -123,14 +128,11 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 autocmd CompleteDone * pclose
 
 set list listchars=tab:\›\ ,trail:-,extends:>,precedes:<,eol:¬
-set runtimepath^=~/.vim/plugged/ctrlp.vim
 set pastetoggle=<F2>
 hi default DbgBreakptLine term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
 hi default DbgBreakptSign term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
 
 let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_php_checkers = ['php', 'phpcs']
-let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 let g:syntastic_javascript_checkers = ['eslint']
 
 " JSHint
@@ -141,17 +143,6 @@ let jshint2_color = 0
 let jshint2_error = 0
 let jshint2_min_height = 3
 let jshint2_max_height = 12
-
-" PHP CS Fixer
-" If php-cs-fixer is in $PATH, you don't need to define line below
-" let g:php_cs_fixer_path = "~/php-cs-fixer.phar" " define the path to the php-cs-fixer.phar
-let g:php_cs_fixer_rules = "@PSR2"
-let g:php_cs_fixer_php_path = "php"               " Path to PHP
-" If you want to define specific fixers:
-"let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
-let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
-let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
-let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 
 " YCM
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -178,19 +169,19 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
 
-let g:phpcomplete_index_composer_command = 'composer'
-
 " SimpylFold
 let g:SimpylFold_docstring_preview=1
 
 " User powerline fonts
 let g:airline_powerline_fonts = 1
 
-" Allow ctrp to search hidden files
-let g:ctrlp_dotfiles = 1
-
 " Transparent vim
 let g:seiya_auto_enable=1
+
+"FZF mappings
+nmap ; :Buffers<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>t :Tags<CR>
 
 " Python with virtualenv support
 py << EOF
