@@ -8,7 +8,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'Shutnik/jshint2.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
-Plug 'joonty/vdebug'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -17,7 +16,6 @@ Plug 'sukima/xmledit'
 Plug 'mileszs/ack.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'majutsushi/tagbar'
-Plug 'evidens/vim-twig'
 Plug 'Valloric/YouCompleteMe'
 Plug 'joonty/vdebug'
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -31,7 +29,21 @@ Plug 'vim-scripts/SQLUtilities'
 Plug 'miyakogi/seiya.vim'
 " If installed using Homebrew
 Plug '/usr/local/opt/fzf'
+Plug 'pangloss/vim-javascript'
+Plug 'leshill/vim-json'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'moll/vim-node'
+Plug 'groenewege/vim-less'
+Plug 'ternjs/tern_for_vim'
+Plug 'johngrib/vim-game-code-break'
+Plug 'chr4/nginx.vim'
+Plug 'pearofducks/ansible-vim'
+Plug 'lepture/vim-jinja'
+Plug 'w0rp/ale'
+Plug 'guileen/vim-node-dict'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'myhere/vim-nodejs-complete'
 call plug#end()
 
 
@@ -64,6 +76,7 @@ au BufNewFile,BufRead *.py
     \ set textwidth=79 |
 
 au BufNewFile,BufRead *.go
+    \ set textwidth=79 |
     \ set noexpandtab |
 
 au BufNewFile,BufRead *.tf
@@ -74,6 +87,25 @@ au BufNewFile,BufRead *.tf
 au BufNewFile,BufRead *.js
     \ set tabstop=2 |
     \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+
+au BufNewFile,BufRead *.yml
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+
+au BufNewFile,BufRead Vagrantfile
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+
+au BufNewFile,BufRead *.md
+    \ set textwidth=79 |
+
+au BufNewFile,BufRead *.j2 set ft=jinja
+au BufNewFile,BufRead *.conf.j2 set ft=nginx
+au BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
+au BufRead,BufNewFile */ansible/*.yml set filetype=ansible
 
 set number
 
@@ -103,8 +135,10 @@ nmap <F8> :TagbarToggle<CR>
 map <leader>+ <C-W>_<C-W><Bar>
 map <leader>= <C-W>=
 
-set mouse=a
+set mouse=
 set nowrap
+
+let g:ale_emit_conflict_warnings = 0
 
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
@@ -134,6 +168,7 @@ hi default DbgBreakptSign term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ff
 
 let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 " JSHint
 let jshint2_read = 1
@@ -147,6 +182,13 @@ let jshint2_max_height = 12
 " YCM
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" tern
+map <leader>j  :TernDef<CR>
+map <leader>jr  :TernRefs<CR>
+map <leader>jd  :TernDoc<CR>
+map <leader>jt  :TernType<CR>
+map <leader>jn  :TernRename<CR>
 
 " Grep configurations
 let Grep_Skip_Dirs = ".git"
@@ -176,7 +218,33 @@ let g:SimpylFold_docstring_preview=1
 let g:airline_powerline_fonts = 1
 
 " Transparent vim
-let g:seiya_auto_enable=1
+let g:seiya_auto_enable = 1
+
+let g:javascript_plugin_flow = 1
+
+"enable keyboard shortcuts
+let g:tern_map_keys=1
+"show argument hints
+let g:tern_show_argument_hints='on_hold'
+
+"FZF mappings
+nmap ; :Buffers<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>t :Tags<CR>
+
+"vim-node-dict
+au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
+
+"vim-nodejs-complete
+let g:nodejs_complete_config = {
+\  'js_compl_fn': 'jscomplete#CompleteJS',
+\  'max_node_compl_len': 15
+\}
+
+"spell check
+autocmd FileType mail setlocal spell spelllang=en_us
+autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
+autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
 
 "FZF mappings
 nmap ; :Buffers<CR>
