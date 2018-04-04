@@ -10,12 +10,16 @@ Configuration files on my development machine.
     ```
     sudo apt-get install vim
     ```
+    
+    Or from [source](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source)
         
     B. MacOS Sierra
     
     ```
     brew install vim
     ```
+    
+    TODO: Or from source
 
 1. Install vim-plug
 
