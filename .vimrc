@@ -27,6 +27,8 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'nvie/vim-flake8'
 Plug 'vim-scripts/SQLUtilities'
 Plug 'miyakogi/seiya.vim'
+" If installed using Homebrew
+Plug '/usr/local/opt/fzf'
 Plug 'pangloss/vim-javascript'
 Plug 'leshill/vim-json'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -44,6 +46,7 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'myhere/vim-nodejs-complete'
 Plug 'stephpy/vim-php-cs-fixer'
 call plug#end()
+
 
 " execute pathogen#infect()
 " call pathogen#helptags()
@@ -118,6 +121,10 @@ set encoding=utf-8
 
 set clipboard=unnamed
 
+"if $TMUX == ''
+"    set clipboard+=unnamed
+"endif
+
 " Disable arrow keys to avoid the bad habbit of using it.
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -162,7 +169,6 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 autocmd CompleteDone * pclose
 
 set list listchars=tab:\›\ ,trail:-,extends:>,precedes:<,eol:¬
-set runtimepath^=~/.vim/plugged/ctrlp.vim
 set pastetoggle=<F2>
 hi default DbgBreakptLine term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
 hi default DbgBreakptSign term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
@@ -263,3 +269,8 @@ autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
 
 set secure
+
+"FZF mappings
+nmap ; :Buffers<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>t :Tags<CR>
