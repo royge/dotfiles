@@ -3,8 +3,19 @@
 Configuration files on my development machine.
 
 ## Getting Started
+1. Install vim
 
-1. Build [vim 8 from source](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source)
+    A. Ubuntu 16.04
+    
+    ```
+    sudo apt-get install vim
+    ```
+        
+    B. MacOS Sierra
+    
+    ```
+    brew install vim
+    ```
 
 1. Install vim-plug
 
@@ -36,7 +47,13 @@ Configuration files on my development machine.
 
 1. Install ```tmux```
 
+    A. Ubuntu 16.04
+    
     ```sudo apt-get install tmux```
+    
+    B. MacOS Sierra
+    
+    ```brew install tmux```
 
 1. Create ```.tmux.conf``` symlink.
 
