@@ -272,5 +272,5 @@ set secure
 
 "FZF mappings
 nmap ; :Buffers<CR>
-nmap <Leader>f :Files<CR>
+nmap <C-p> :Files<CR>
 nmap <Leader>t :Tags<CR>
