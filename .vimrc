@@ -43,6 +43,7 @@ Plug 'w0rp/ale'
 Plug 'guileen/vim-node-dict'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'myhere/vim-nodejs-complete'
+Plug 'stephpy/vim-php-cs-fixer'
 call plug#end()
 
 
@@ -63,6 +64,9 @@ let python_highlight_all=1
 syntax on
 
 filetype plugin indent on
+
+" Allow .vimrc overrides on project directory
+set exrc
 
 set tabstop=4
 set softtabstop=4
@@ -101,6 +105,9 @@ au BufNewFile,BufRead Vagrantfile
 
 au BufNewFile,BufRead *.md
     \ set textwidth=79 |
+
+au BufNewFile,BufRead *.php
+    \ set textwidth=120 |
 
 au BufNewFile,BufRead *.j2 set ft=jinja
 au BufNewFile,BufRead *.conf.j2 set ft=nginx
@@ -169,6 +176,8 @@ hi default DbgBreakptSign term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ff
 let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint_d'
+let g:syntastic_php_checkers = ['php', 'phpcs']
+let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 
 " JSHint
 let jshint2_read = 1
@@ -178,6 +187,17 @@ let jshint2_color = 0
 let jshint2_error = 0
 let jshint2_min_height = 3
 let jshint2_max_height = 12
+
+" PHP CS Fixer
+" If php-cs-fixer is in $PATH, you don't need to define line below
+" let g:php_cs_fixer_path = "~/php-cs-fixer.phar" " define the path to the php-cs-fixer.phar
+let g:php_cs_fixer_rules = "@PSR2"
+let g:php_cs_fixer_php_path = "php"
+" If you want to define specific fixers:
+"let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
+let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
+let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
+let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 
 " YCM
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -210,6 +230,8 @@ set foldlevel=99
 
 " Enable folding with the spacebar
 nnoremap <space> za
+
+let g:phpcomplete_index_composer_command = 'composer'
 
 " SimpylFold
 let g:SimpylFold_docstring_preview=1
@@ -246,7 +268,9 @@ autocmd FileType mail setlocal spell spelllang=en_us
 autocmd BufRead COMMIT_EDITMSG setlocal spell spelllang=en_us
 autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
 
+set secure
+
 "FZF mappings
 nmap ; :Buffers<CR>
-nmap <Leader>f :Files<CR>
+nmap <C-p> :Files<CR>
 nmap <Leader>t :Tags<CR>
