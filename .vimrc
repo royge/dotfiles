@@ -58,7 +58,7 @@ no <C-h> <C-W>h
 no <C-l> <C-W>l
 
 " My colors
-color jellybeans
+" color jellybeans
 
 let python_highlight_all=1
 
