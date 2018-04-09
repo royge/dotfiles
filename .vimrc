@@ -17,7 +17,6 @@ Plug 'mileszs/ack.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe'
-Plug 'joonty/vdebug'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'mxw/vim-jsx'
 Plug 'davidhalter/jedi-vim'
@@ -83,6 +82,7 @@ au BufNewFile,BufRead *.tf
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
+    \ set expandtab |
 
 au BufNewFile,BufRead *.js
     \ set tabstop=2 |
@@ -250,13 +250,3 @@ autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
 nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>t :Tags<CR>
-
-" Python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
