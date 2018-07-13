@@ -116,6 +116,9 @@ au BufRead,BufNewFile */ansible/*.yml set filetype=ansible
 
 set number
 
+" Map escape
+:imap jk <Esc>
+
 " UTF8 support
 set encoding=utf-8
 
