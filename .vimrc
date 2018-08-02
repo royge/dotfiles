@@ -44,6 +44,7 @@ Plug 'guileen/vim-node-dict'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'myhere/vim-nodejs-complete'
 Plug 'stephpy/vim-php-cs-fixer'
+Plug 'junegunn/vim-easy-align'
 call plug#end()
 
 
@@ -277,3 +278,9 @@ set secure
 nmap ; :Buffers<CR>
 nmap <C-p> :Files<CR>
 nmap <Leader>t :Tags<CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
