@@ -45,6 +45,7 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'myhere/vim-nodejs-complete'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'junegunn/vim-easy-align'
+Plug 'dart-lang/dart-vim-plugin'
 call plug#end()
 
 
@@ -95,6 +96,11 @@ au BufNewFile,BufRead *.js
     \ set shiftwidth=2 |
 
 au BufNewFile,BufRead *.yml
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+
+au BufNewFile,BufRead *.yaml
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
