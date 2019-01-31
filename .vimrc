@@ -2,7 +2,6 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/DirDiff.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'garyburd/go-explorer'
 Plug 'yegappan/grep'
 Plug 'nanotech/jellybeans.vim'
 Plug 'Shutnik/jshint2.vim'
@@ -46,6 +45,8 @@ Plug 'myhere/vim-nodejs-complete'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'junegunn/vim-easy-align'
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 call plug#end()
 
 
@@ -157,6 +158,11 @@ set nowrap
 
 let g:ale_emit_conflict_warnings = 0
 
+" Disable eslint for typescript
+let g:ale_linters = {
+\    'typescript': ['tslint', 'tsserver'],
+\}
+
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -208,6 +214,10 @@ let g:php_cs_fixer_php_path = "php"
 let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
 let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
 let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
+
+" tslint
+let g:syntastic_typescript_checkers = ['tsc', 'tslint']
+let g:syntastic_typescript_tsc_fname = ''
 
 " YCM
 let g:ycm_autoclose_preview_window_after_completion=1
