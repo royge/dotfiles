@@ -47,6 +47,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 
@@ -300,3 +301,6 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" RustFmt
+let g:rustfmt_autosave=1
