@@ -2,7 +2,7 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/DirDiff.vim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'yegappan/grep'
+Plug 'vim-scripts/grep.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'Shutnik/jshint2.vim'
 Plug 'scrooloose/nerdcommenter'
@@ -45,6 +45,7 @@ Plug 'myhere/vim-nodejs-complete'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'junegunn/vim-easy-align'
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'SirVer/ultisnips'
 call plug#end()
 
 
@@ -215,6 +216,7 @@ let g:php_cs_fixer_verbose = 0                    " Return the output of command
 
 " YCM
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " tern
@@ -302,3 +304,10 @@ let dart_format_on_save = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_metalinter_command='golangci-lint'
+let g:go_rename_command='gopls'
+
+" UltiSnips configurations
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
