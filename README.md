@@ -35,6 +35,7 @@ Configuration files on my development machine.
 1. Add `YCM` completion supports
 
     ```
+    sudo apt install build-essential cmake python3-dev
     cd ~/.config/nvim/plugged/YouCompleteMe
     python3 ./install.py --gocode-completer --tern-completer
     ```
