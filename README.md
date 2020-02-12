@@ -3,23 +3,13 @@
 Configuration files on my development machine.
 
 ## Getting Started
-1. Install vim
+1. Install neovim
 
-    A. Ubuntu 16.04
+    A. Ubuntu 19.10
     
     ```
-    sudo apt-get install vim
+    sudo apt-get install neovim
     ```
-    
-    Or from [source](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source)
-        
-    B. MacOS Sierra
-    
-    ```
-    brew install vim
-    ```
-    
-    TODO: Or from source
 
 1. Install vim-plug
 
@@ -34,18 +24,18 @@ Configuration files on my development machine.
     git clone https://github.com/royge/dotfiles.git
     ```
 
-1. Create ```.vimrc``` symlink.
+1. Create ```init.vim``` symlink.
 
     ```
-    ln -s ~/dotfiles/.vimrc ~/.vimrc
+    ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
     ```
 
-1. Run ```vim``` and execute ```:PlugInstall```
+1. Run ```nvim``` and execute ```:PlugInstall```
 
 1. Add `YCM` completion supports
 
     ```
-    cd ~/.vim/plugged/YouCompleteMe
+    cd ~/.config/nvim/plugged/YouCompleteMe
     python3 ./install.py --gocode-completer --tern-completer
     ```
 
@@ -54,10 +44,6 @@ Configuration files on my development machine.
     A. Ubuntu 16.04
     
     ```sudo apt-get install tmux```
-    
-    B. MacOS Sierra
-    
-    ```brew install tmux```
 
 1. Create ```.tmux.conf``` symlink.
 
