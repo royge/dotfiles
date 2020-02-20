@@ -5,8 +5,6 @@ Configuration files on my development machine.
 ## Getting Started
 1. Install neovim
 
-    A. Ubuntu 19.10
-    
     ```
     sudo apt-get install neovim
     ```
@@ -41,8 +39,6 @@ Configuration files on my development machine.
     ```
 
 1. Install ```tmux```
-
-    A. Ubuntu 16.04
     
     ```sudo apt-get install tmux```
 
