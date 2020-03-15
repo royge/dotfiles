@@ -13,7 +13,7 @@ Configuration files on my development machine.
 1. Install vim-plug
 
     ```
-    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     ```
 
@@ -23,19 +23,19 @@ Configuration files on my development machine.
     git clone https://github.com/royge/dotfiles.git
     ```
 
-1. Create ```init.vim``` symlink.
+1. Create ```.vimrc``` symlink.
 
     ```
-    ln -s ~/dotfiles/init.vim ~/.config/nvim/init.vim
+    ln -s ~/dotfiles/.vimrc ~/.vimrc
     ```
 
-1. Run ```nvim``` and execute ```:PlugInstall```
+1. Run ```vim``` and execute ```:PlugInstall```
 
 1. Add `YCM` completion supports
 
     ```
     sudo apt install build-essential cmake python3-dev
-    cd ~/.config/nvim/plugged/YouCompleteMe
+    cd ~/.vim/plugged/YouCompleteMe
     python3 ./install.py --gocode-completer --tern-completer
     ```
 
