@@ -12,9 +12,18 @@ Configuration files on my development machine.
     git clone https://github.com/royge/dotfiles.git
     ```
 
+1. Install dependencies
+
+    ```
+    cd dotfiles
+    ./install.sh
+    ```
+
 1. Run ```vim``` and execute ```:PlugInstall```
 
 1. Install `go` and `nodejs`
+
+    **NOTE**: Please their website for installation instructions.
 
 1. Add `YCM` completion supports
 
@@ -41,8 +50,3 @@ Configuration files on my development machine.
 ## Go + VIM
 
 - [Go development plugin for Vim](https://github.com/fatih/vim-go)
-
-TODO
-----
-
-* More instructions.
