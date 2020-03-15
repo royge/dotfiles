@@ -32,6 +32,8 @@ Configuration files on my development machine.
 
 1. Run ```vim``` and execute ```:PlugInstall```
 
+1. Install `go` and `nodejs`
+
 1. Add `YCM` completion supports
 
     ```
