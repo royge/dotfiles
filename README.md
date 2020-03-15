@@ -51,6 +51,9 @@ Configuration files on my development machine.
     ```
     ln -s ~/dotfiles/.tmux.conf ~/.tmux.conf
     ```
+1. Install `pip`
+
+    ```sudo apt-get install python3-pip```
 
 1. Install powerline
 
