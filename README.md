@@ -32,15 +32,6 @@ Configuration files on my development machine.
     python3 ./install.py --gocode-completer --tern-completer
     ```
 
-1. Add `vim` plugins configuration
-
-    **WARNING**: This command will append the contents of `.vimrc-config` file.
-    And executing it more than once means duplicate appends.
-
-    ```
-    cat .vimrc-config >> .vimrc
-    ```
-
 1. Reboot.
 
 ## Python + VIM
