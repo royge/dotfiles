@@ -1,12 +1,13 @@
 # dot files
 
 Configuration files on my development machine.
+**NOTE**: This is tested only in Ubuntu 18.04 LTS.
 
 ## Getting Started
-1. Install neovim
+1. Install vim
 
     ```
-    sudo apt-get install neovim
+    sudo apt-get install vim
     ```
 
 1. Install vim-plug
