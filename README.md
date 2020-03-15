@@ -57,7 +57,7 @@ Configuration files on my development machine.
 
 1. Install powerline
 
-    ```pip install powerline-status```
+    ```pip3 install powerline-status```
 
 1. Install powerline fonts.
 
