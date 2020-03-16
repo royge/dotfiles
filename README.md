@@ -14,6 +14,8 @@ Configuration files on my development machine.
 
 1. Install dependencies
 
+    **NOTE**: We are installing `vim` from `jonathonf/vim` because the version available in ubuntu repo doesn't supports clipboard.
+
     ```
     cd dotfiles
     ./install.sh
