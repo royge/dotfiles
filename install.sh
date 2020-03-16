@@ -7,7 +7,7 @@ sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
 
 # Install required system libraries
-sudo apt-get install vim tmux build-essential cmake python3-dev git python3-pip
+sudo apt-get install vim vim-gtk3 tmux build-essential cmake python3-dev git python3-pip
 
 # Install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim \
