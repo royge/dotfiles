@@ -25,7 +25,7 @@ Configuration files on my development machine.
 
 1. Install `go` and `nodejs`
 
-    **NOTE**: Please their website for installation instructions.
+    Check their website for installation instructions.
 
 1. Add `YCM` completion supports
 
