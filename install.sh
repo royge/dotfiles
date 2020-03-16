@@ -2,8 +2,13 @@
 
 set -e
 
+# Until ubuntu default vim package support clipboard, we will be installing from custom PPA.
+sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+
 # Install required system libraries
-sudo apt-get install vim tmux build-essential cmake python3-dev git python3-pip
+sudo apt-get install tmux build-essential cmake python3-dev git python3-pip
 
 # Install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim \
