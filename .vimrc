@@ -46,6 +46,7 @@ Plug 'stephpy/vim-php-cs-fixer'
 Plug 'junegunn/vim-easy-align'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'SirVer/ultisnips'
+Plug 'JamshedVesuna/vim-markdown-preview'
 call plug#end()
 " execute pathogen#infect()
 " call pathogen#helptags()
@@ -309,3 +310,6 @@ let g:go_rename_command='gopls'
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Markdown preview
+let vim_markdown_preview_github=1
