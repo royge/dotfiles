@@ -7,7 +7,7 @@ sudo add-apt-repository ppa:jonathonf/vim
 sudo apt update
 
 # Install required system libraries
-sudo apt-get install vim vim-gtk3 tmux build-essential cmake python3-dev git python3-pip
+sudo apt-get install vim vim-gtk3 tmux git
 
 # Install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim \
@@ -31,3 +31,5 @@ mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
 # Install tmux theme.
 git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
+
+vim +PlugInstall +qall

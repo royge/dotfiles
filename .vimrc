@@ -10,12 +10,13 @@ Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
+Plug 'govim/govim'
 Plug 'sukima/xmledit'
 Plug 'mileszs/ack.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'mxw/vim-jsx'
 Plug 'davidhalter/jedi-vim'
@@ -45,8 +46,12 @@ Plug 'myhere/vim-nodejs-complete'
 Plug 'stephpy/vim-php-cs-fixer'
 Plug 'junegunn/vim-easy-align'
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'SirVer/ultisnips'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+" Plug 'SirVer/ultisnips'
 Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'yami-beta/asyncomplete-omni.vim'
 call plug#end()
 " execute pathogen#infect()
 " call pathogen#helptags()
@@ -297,19 +302,40 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Dart related configurations.
-let g:loaded_syntastic_dart_dartanalyzer_checker = 0
+let g:loaded_syntastic_dart_dartanalyzer_checker = 1
 let dart_format_on_save = 1
+let dart_html_in_string=v:true
+let g:dart_style_guide = 2
 
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
-let g:go_metalinter_command='golangci-lint'
-let g:go_rename_command='gopls'
+let g:lsc_auto_map = v:true
+
+" let g:go_def_mode='gopls'
+" let g:go_info_mode='gopls'
+" let g:go_metalinter_command='golangci-lint'
+" let g:go_rename_command='gopls'
+
+" govim
+set timeoutlen=1000 ttimeoutlen=0
 
 " UltiSnips configurations
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Markdown preview
 let vim_markdown_preview_github=1
+
+function! Omni()
+    call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+                    \ 'name': 'omni',
+                    \ 'whitelist': ['go', 'dart'],
+                    \ 'completor': function('asyncomplete#sources#omni#completor')
+                    \  }))
+endfunction
+
+au VimEnter * :call Omni()
+
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"

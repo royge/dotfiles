@@ -2,7 +2,7 @@
 
 Configuration files on my development machine.
 
-**NOTE**: This is tested only in Ubuntu 18.04 LTS.
+**NOTE**: This is tested only in Ubuntu 19.10.
 
 ## Getting Started
 
@@ -12,34 +12,16 @@ Configuration files on my development machine.
     git clone https://github.com/royge/dotfiles.git
     ```
 
-1. Install dependencies
+1. Install `go`
 
-    **NOTE**: We are installing `vim` from `jonathonf/vim` because the version available in ubuntu repo doesn't supports clipboard.
+1. Execute `install.sh`
+
+    **NOTE**: We are installing `vim` from `jonathonf/vim` because the version
+    available in ubuntu repo doesn't supports clipboard.
 
     ```
     cd dotfiles
     ./install.sh
     ```
 
-1. Run ```vim``` and execute ```:PlugInstall```
-
-1. Install `go` and `nodejs`
-
-    Check their website for installation instructions.
-
-1. Add `YCM` completion supports
-
-    ```
-    cd ~/.vim/plugged/YouCompleteMe
-    python3 ./install.py --gocode-completer --tern-completer
-    ```
-
 1. Reboot.
-
-## Python + VIM
-
-- [VIM and Python - a Match Made in Heaven](https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/)
-
-## Go + VIM
-
-- [Go development plugin for Vim](https://github.com/fatih/vim-go)
