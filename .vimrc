@@ -10,8 +10,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-" Plug 'fatih/vim-go'
-Plug 'govim/govim'
+Plug 'fatih/vim-go'
 Plug 'sukima/xmledit'
 Plug 'mileszs/ack.vim'
 Plug 'plasticboy/vim-markdown'
@@ -167,24 +166,24 @@ set nowrap
 let g:ale_emit_conflict_warnings = 0
 
 let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-    \ }
-
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_smart_case = 1
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" let g:neocomplete#sources#dictionary#dictionaries = {
+"     \ 'default' : '',
+"     \ 'vimshell' : $HOME.'/.vimshell_hist',
+"     \ 'scheme' : $HOME.'/.gosh_completions'
+"     \ }
+" 
+" if !exists('g:neocomplete#keyword_patterns')
+"     let g:neocomplete#keyword_patterns = {}
+" endif
+" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" inoremap <expr><C-g>     neocomplete#undo_completion()
+" inoremap <expr><C-l>     neocomplete#complete_common_string()
+" " <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 autocmd CompleteDone * pclose
 
 set list listchars=tab:\›\ ,trail:-,extends:>,precedes:<,eol:¬
@@ -192,11 +191,12 @@ set pastetoggle=<F2>
 hi default DbgBreakptLine term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
 hi default DbgBreakptSign term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
 
+let g:syntastic_go_checkers = ['golangci_lint']
 let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint_d'
-let g:syntastic_php_checkers = ['php', 'phpcs']
-let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
+" let g:syntastic_php_checkers = ['php', 'phpcs']
+" let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 
 " JSHint
 let jshint2_read = 1
@@ -210,18 +210,20 @@ let jshint2_max_height = 12
 " PHP CS Fixer
 " If php-cs-fixer is in $PATH, you don't need to define line below
 " let g:php_cs_fixer_path = "~/php-cs-fixer.phar" " define the path to the php-cs-fixer.phar
-let g:php_cs_fixer_rules = "@PSR2"
-let g:php_cs_fixer_php_path = "php"
+
+" let g:php_cs_fixer_rules = "@PSR2"
+" let g:php_cs_fixer_php_path = "php"
+
 " If you want to define specific fixers:
 "let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
-let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
-let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
-let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
+" let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
+" let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
+" let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 
 " YCM
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" let g:ycm_autoclose_preview_window_after_completion=1
+" let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
+" map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " tern
 map <leader>j  :TernDef<CR>
@@ -290,11 +292,6 @@ autocmd BufNewFile,BufRead *.md,*.mkd,*.markdown set spell spelllang=en_us
 
 set secure
 
-"FZF mappings
-nmap ; :Buffers<CR>
-nmap <C-p> :Files<CR>
-nmap <Leader>t :Tags<CR>
-
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
@@ -309,13 +306,10 @@ let g:dart_style_guide = 2
 
 let g:lsc_auto_map = v:true
 
-" let g:go_def_mode='gopls'
-" let g:go_info_mode='gopls'
-" let g:go_metalinter_command='golangci-lint'
-" let g:go_rename_command='gopls'
-
-" govim
-set timeoutlen=1000 ttimeoutlen=0
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_metalinter_command='golangci-lint'
+let g:go_rename_command='gopls'
 
 " UltiSnips configurations
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
