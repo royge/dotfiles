@@ -15,7 +15,7 @@ Plug 'sukima/xmledit'
 Plug 'mileszs/ack.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'majutsushi/tagbar'
-" Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'mxw/vim-jsx'
 Plug 'davidhalter/jedi-vim'
@@ -49,8 +49,6 @@ Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 " Plug 'SirVer/ultisnips'
 Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'yami-beta/asyncomplete-omni.vim'
 call plug#end()
 " execute pathogen#infect()
 " call pathogen#helptags()
@@ -319,17 +317,3 @@ let g:go_rename_command='gopls'
 
 " Markdown preview
 let vim_markdown_preview_github=1
-
-function! Omni()
-    call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-                    \ 'name': 'omni',
-                    \ 'whitelist': ['go', 'dart'],
-                    \ 'completor': function('asyncomplete#sources#omni#completor')
-                    \  }))
-endfunction
-
-au VimEnter * :call Omni()
-
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
