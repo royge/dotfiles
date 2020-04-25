@@ -48,7 +48,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 " Plug 'SirVer/ultisnips'
-Plug 'JamshedVesuna/vim-markdown-preview'
+" Plug 'JamshedVesuna/vim-markdown-preview'
 call plug#end()
 " execute pathogen#infect()
 " call pathogen#helptags()
@@ -219,9 +219,9 @@ let jshint2_max_height = 12
 " let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 
 " YCM
-" let g:ycm_autoclose_preview_window_after_completion=1
-" let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
-" map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " tern
 map <leader>j  :TernDef<CR>
@@ -273,6 +273,7 @@ let g:tern_show_argument_hints='on_hold'
 nmap ; :Buffers<CR>
 nmap <Leader>f :Files<CR>
 nmap <Leader>t :Tags<CR>
+nmap <C-p> :Files<CR>
 
 "vim-node-dict
 au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
@@ -308,6 +309,7 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_metalinter_command='golangci-lint'
 let g:go_rename_command='gopls'
+let g:go_fmt_autosave = 0
 
 " UltiSnips configurations
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -316,4 +318,4 @@ let g:go_rename_command='gopls'
 " let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " Markdown preview
-let vim_markdown_preview_github=1
+" let vim_markdown_preview_github=1
