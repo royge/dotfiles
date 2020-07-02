@@ -38,7 +38,7 @@ Plug 'johngrib/vim-game-code-break'
 Plug 'chr4/nginx.vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'lepture/vim-jinja'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'guileen/vim-node-dict'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'myhere/vim-nodejs-complete'
@@ -47,6 +47,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
+Plug 'hashivim/vim-terraform'
+Plug 'fxn/vim-monochrome'
 " Plug 'SirVer/ultisnips'
 " Plug 'JamshedVesuna/vim-markdown-preview'
 call plug#end()
@@ -61,6 +63,8 @@ no <C-l> <C-W>l
 
 " My colors
 color jellybeans
+" let g:monochrome_italic_comments = 1
+" colorscheme monochrome
 
 let python_highlight_all=1
 
@@ -86,8 +90,8 @@ au BufNewFile,BufRead *.go
     \ set noexpandtab |
 
 au BufNewFile,BufRead *.tf
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
+  \ set tabstop=2 |
+  \ set softtabstop=2 |
     \ set shiftwidth=2 |
     \ set expandtab |
 
@@ -161,7 +165,7 @@ map <leader>= <C-W>=
 set mouse=
 set nowrap
 
-let g:ale_emit_conflict_warnings = 0
+"let g:ale_emit_conflict_warnings = 0
 
 let g:acp_enableAtStartup = 0
 " let g:neocomplete#enable_at_startup = 1
@@ -222,6 +226,9 @@ let jshint2_max_height = 12
 let g:ycm_autoclose_preview_window_after_completion=1
 let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_auto_hover = ''
+let s:enable_hover = 0
+let s:cursorhold_popup = -1
 
 " tern
 map <leader>j  :TernDef<CR>
@@ -309,7 +316,7 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_metalinter_command='golangci-lint'
 let g:go_rename_command='gopls'
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
 
 " UltiSnips configurations
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -319,3 +326,6 @@ let g:go_fmt_autosave = 0
 
 " Markdown preview
 " let vim_markdown_preview_github=1
+
+" Terraform
+let g:terraform_align=1
