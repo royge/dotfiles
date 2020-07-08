@@ -7,7 +7,7 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'Shutnik/jshint2.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go'
@@ -48,7 +48,8 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 Plug 'hashivim/vim-terraform'
-Plug 'fxn/vim-monochrome'
+" Plug 'fxn/vim-monochrome'
+" Plug 'andreypopp/vim-colors-plain'
 " Plug 'SirVer/ultisnips'
 " Plug 'JamshedVesuna/vim-markdown-preview'
 call plug#end()
@@ -316,7 +317,7 @@ let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_metalinter_command='golangci-lint'
 let g:go_rename_command='gopls'
-let g:go_fmt_autosave = 1
+let g:go_fmt_autosave = 0
 
 " UltiSnips configurations
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
