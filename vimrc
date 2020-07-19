@@ -7,7 +7,6 @@ Plug 'nanotech/jellybeans.vim'
 Plug 'Shutnik/jshint2.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-syntastic/syntastic'
-" Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go'
@@ -38,7 +37,6 @@ Plug 'johngrib/vim-game-code-break'
 Plug 'chr4/nginx.vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'lepture/vim-jinja'
-" Plug 'w0rp/ale'
 Plug 'guileen/vim-node-dict'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'myhere/vim-nodejs-complete'
@@ -48,10 +46,6 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 Plug 'hashivim/vim-terraform'
-" Plug 'fxn/vim-monochrome'
-" Plug 'andreypopp/vim-colors-plain'
-" Plug 'SirVer/ultisnips'
-" Plug 'JamshedVesuna/vim-markdown-preview'
 call plug#end()
 " execute pathogen#infect()
 " call pathogen#helptags()
@@ -111,26 +105,13 @@ au BufNewFile,BufRead *.yaml
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
 
-au BufNewFile,BufRead Vagrantfile
-    \ set tabstop=2 |
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
-
 au BufNewFile,BufRead *.md
     \ set textwidth=79 |
-
-au BufNewFile,BufRead *.php
-    \ set textwidth=120 |
 
 au BufNewFile,BufRead *.dart
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
-
-au BufNewFile,BufRead *.j2 set ft=jinja
-au BufNewFile,BufRead *.conf.j2 set ft=nginx
-au BufRead,BufNewFile */playbooks/*.yml set filetype=ansible
-au BufRead,BufNewFile */ansible/*.yml set filetype=ansible
 
 set number
 
@@ -166,27 +147,7 @@ map <leader>= <C-W>=
 set mouse=
 set nowrap
 
-"let g:ale_emit_conflict_warnings = 0
-
 let g:acp_enableAtStartup = 0
-" let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#enable_smart_case = 1
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" let g:neocomplete#sources#dictionary#dictionaries = {
-"     \ 'default' : '',
-"     \ 'vimshell' : $HOME.'/.vimshell_hist',
-"     \ 'scheme' : $HOME.'/.gosh_completions'
-"     \ }
-" 
-" if !exists('g:neocomplete#keyword_patterns')
-"     let g:neocomplete#keyword_patterns = {}
-" endif
-" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-" inoremap <expr><C-g>     neocomplete#undo_completion()
-" inoremap <expr><C-l>     neocomplete#complete_common_string()
-" " <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 autocmd CompleteDone * pclose
 
 set list listchars=tab:\›\ ,trail:-,extends:>,precedes:<,eol:¬
@@ -198,8 +159,6 @@ let g:syntastic_go_checkers = ['golangci_lint']
 let g:syntastic_python_checkers = ['pyflakes']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint_d'
-" let g:syntastic_php_checkers = ['php', 'phpcs']
-" let g:syntastic_php_phpcs_args = "--standard=PSR2 -n"
 
 " JSHint
 let jshint2_read = 1
@@ -209,19 +168,6 @@ let jshint2_color = 0
 let jshint2_error = 0
 let jshint2_min_height = 3
 let jshint2_max_height = 12
-
-" PHP CS Fixer
-" If php-cs-fixer is in $PATH, you don't need to define line below
-" let g:php_cs_fixer_path = "~/php-cs-fixer.phar" " define the path to the php-cs-fixer.phar
-
-" let g:php_cs_fixer_rules = "@PSR2"
-" let g:php_cs_fixer_php_path = "php"
-
-" If you want to define specific fixers:
-"let g:php_cs_fixer_fixers_list = "linefeed,short_tag,indentation"
-" let g:php_cs_fixer_enable_default_mapping = 1     " Enable the mapping by default (<leader>pcd)
-" let g:php_cs_fixer_dry_run = 0                    " Call command with dry-run option
-" let g:php_cs_fixer_verbose = 0                    " Return the output of command if 1, else an inline information.
 
 " YCM
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -258,8 +204,6 @@ set foldlevel=99
 
 " Enable folding with the spacebar
 nnoremap <space> za
-
-let g:phpcomplete_index_composer_command = 'composer'
 
 " SimpylFold
 let g:SimpylFold_docstring_preview=1
@@ -318,15 +262,6 @@ let g:go_info_mode='gopls'
 let g:go_metalinter_command='golangci-lint'
 let g:go_rename_command='gopls'
 let g:go_fmt_autosave = 0
-
-" UltiSnips configurations
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" Markdown preview
-" let vim_markdown_preview_github=1
 
 " Terraform
 let g:terraform_align=1
