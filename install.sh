@@ -8,7 +8,7 @@ if [[ "$OSTYPE" == "linux-gnu"*  ]]; then
     sudo apt update
 
     # Install required system libraries
-    sudo apt install vim vim-gtk3 tmux git
+    sudo apt install vim vim-gtk3 tmux git curl build-essential cmake python3-dev
 elif [[ "$OSTYPE" == "darwin"*  ]]; then
     brew install tmux
 else
@@ -28,8 +28,6 @@ ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
 git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
 
 vim +PlugInstall +qall
-
-sudo apt install build-essential cmake python3-dev
 
 cd ~/.vim/plugged/YouCompleteMe/
 python3 install.py --clangd-completer --go-completer --rust-completer
