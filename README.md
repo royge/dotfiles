@@ -2,7 +2,7 @@
 
 Configuration files on my development machine.
 
-**NOTE**: This is tested only in Ubuntu 19.10.
+**NOTE**: This is tested only in Ubuntu 20.04 and Mac OS Catalina.
 
 ## Getting Started
 
@@ -14,9 +14,11 @@ Configuration files on my development machine.
 
 1. Install `go`
 
+1. Install `rust`
+
 1. Execute `install.sh`
 
-    **NOTE**: We are installing `vim` from `jonathonf/vim` because the version
+    **NOTE**: For Ubuntu, we are installing `vim` from `jonathonf/vim` because the version
     available in ubuntu repo doesn't supports clipboard.
 
     ```

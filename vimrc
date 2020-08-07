@@ -83,6 +83,8 @@ set autoindent
 set expandtab
 set fileformat=unix
 
+set ruler
+
 au BufNewFile,BufRead *.py
     \ set textwidth=79 |
 
