@@ -14,7 +14,7 @@ Plug 'sukima/xmledit'
 Plug 'mileszs/ack.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'majutsushi/tagbar'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'mxw/vim-jsx'
 Plug 'davidhalter/jedi-vim'
@@ -66,6 +66,9 @@ let python_highlight_all=1
 syntax on
 
 filetype plugin indent on
+
+set omnifunc=syntaxcomplete#Complete
+au filetype go inoremap <buffer> . .<C-x><C-o>
 
 " Allow .vimrc overrides on project directory
 set exrc

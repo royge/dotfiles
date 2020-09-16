@@ -29,5 +29,5 @@ git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
 
 vim +PlugInstall +qall
 
-cd ~/.vim/plugged/YouCompleteMe/
-python3 install.py --clangd-completer --go-completer --rust-completer
+# cd ~/.vim/plugged/YouCompleteMe/
+# python3 install.py --clangd-completer --go-completer --rust-completer
