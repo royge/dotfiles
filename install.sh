@@ -11,6 +11,7 @@ if [[ "$OSTYPE" == "linux-gnu"*  ]]; then
     sudo apt install vim vim-gtk3 tmux git curl build-essential cmake python3-dev
 elif [[ "$OSTYPE" == "darwin"*  ]]; then
     brew install tmux
+    brew install reattach-to-user-namespace
 else
     echo "ERROR: Not tested to work in your current OS. Sorry."
     exit 1

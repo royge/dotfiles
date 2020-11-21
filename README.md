@@ -26,4 +26,10 @@ Configuration files on my development machine.
     ./install.sh
     ```
 
+    **NOTE**: After Mac OS Big Sur upgrade we need to upgrade `reattach-to-user-namespace` as well.
+
+    ```
+    brew upgrade reattach-to-user-namespace
+    ```
+
 1. Reboot.
