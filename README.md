@@ -21,14 +21,25 @@ Configuration files on my development machine.
     **NOTE**: For Ubuntu, we are installing `vim` from `jonathonf/vim` because the version
     available in ubuntu repo doesn't supports clipboard.
 
-    ```
+    ```bash
     cd dotfiles
+    ```
+
+    **Ubuntu**
+
+    ```bash
+    sudo ./install.sh
+    ```
+
+    **Mac OS**
+
+    ```bash
     ./install.sh
     ```
 
     **NOTE**: After Mac OS Big Sur upgrade we need to upgrade `reattach-to-user-namespace` as well.
 
-    ```
+    ```bash
     brew upgrade reattach-to-user-namespace
     ```
 
