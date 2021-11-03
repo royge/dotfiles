@@ -2,7 +2,7 @@
 
 Configuration files on my development machine.
 
-**NOTE**: This is tested only in Ubuntu 20.04 and Mac OS Catalina.
+**NOTE**: This is tested only in Ubuntu 20.04 and Mac OS Catalina and up.
 
 ## Getting Started
 
