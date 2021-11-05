@@ -4,11 +4,11 @@ set -e
 
 if [[ "$OSTYPE" == "linux-gnu"*  ]]; then
     # Until ubuntu default vim package support clipboard, we will be installing from custom PPA.
-    add-apt-repository ppa:jonathonf/vim
-    apt update
+    # add-apt-repository ppa:jonathonf/vim
+    sudo apt update
 
     # Install required system libraries
-    apt install vim vim-gtk3 tmux git curl build-essential cmake python3-dev
+    sudo apt install vim vim-gtk3 tmux git curl build-essential cmake python3-dev
 elif [[ "$OSTYPE" == "darwin"*  ]]; then
     brew install tmux
     brew install reattach-to-user-namespace

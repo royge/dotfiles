@@ -23,17 +23,6 @@ Configuration files on my development machine.
 
     ```bash
     cd dotfiles
-    ```
-
-    **Ubuntu**
-
-    ```bash
-    sudo ./install.sh
-    ```
-
-    **Mac OS**
-
-    ```bash
     ./install.sh
     ```
 
