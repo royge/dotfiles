@@ -10,7 +10,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go'
-Plug 'sukima/xmledit'
+" Plug 'sukima/xmledit'
 Plug 'mileszs/ack.vim'
 Plug 'plasticboy/vim-markdown'
 Plug 'majutsushi/tagbar'
@@ -34,18 +34,25 @@ Plug 'moll/vim-node'
 Plug 'groenewege/vim-less'
 Plug 'ternjs/tern_for_vim'
 Plug 'johngrib/vim-game-code-break'
-Plug 'chr4/nginx.vim'
-Plug 'pearofducks/ansible-vim'
-Plug 'lepture/vim-jinja'
+" Plug 'chr4/nginx.vim'
+" Plug 'pearofducks/ansible-vim'
+" Plug 'lepture/vim-jinja'
 Plug 'guileen/vim-node-dict'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'myhere/vim-nodejs-complete'
-Plug 'stephpy/vim-php-cs-fixer'
+" Plug 'stephpy/vim-php-cs-fixer'
 Plug 'junegunn/vim-easy-align'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 Plug 'hashivim/vim-terraform'
+Plug 'rust-lang/rust.vim'
+Plug 'udalov/kotlin-vim'
+" Plug 'hdiniz/vim-gradle'
+" Plug 'othree/xml.vim'
+Plug 'zbirenbaum/copilot.lua'
+Plug 'nvim-lua/plenary.nvim'
+" Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
 call plug#end()
 " execute pathogen#infect()
 " call pathogen#helptags()
@@ -65,10 +72,13 @@ let python_highlight_all=1
 
 syntax on
 
+" Use new regular expression engine
+set re=0
+
 filetype plugin indent on
 
-set omnifunc=syntaxcomplete#Complete
-au filetype go inoremap <buffer> . .<C-x><C-o>
+" set omnifunc=syntaxcomplete#Complete
+" au filetype go inoremap <buffer> . .<C-x><C-o>
 
 " Allow .vimrc overrides on project directory
 set exrc
@@ -100,6 +110,11 @@ au BufNewFile,BufRead *.js
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
 
+au BufNewFile,BufRead *.ts
+    \ set tabstop=2 |
+    \ set softtabstop=2 |
+    \ set shiftwidth=2 |
+
 au BufNewFile,BufRead *.yml
     \ set tabstop=2 |
     \ set softtabstop=2 |
@@ -117,6 +132,9 @@ au BufNewFile,BufRead *.dart
     \ set tabstop=2 |
     \ set softtabstop=2 |
     \ set shiftwidth=2 |
+
+au BufNewFile,BufRead *.mojo
+    \ set textwidth=79 |
 
 set number
 
@@ -160,34 +178,38 @@ set pastetoggle=<F2>
 hi default DbgBreakptLine term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
 hi default DbgBreakptSign term=reverse ctermfg=White ctermbg=DarkGreen guifg=#ffffff guibg=#003300
 
-let g:syntastic_go_checkers = ['golangci_lint']
+" let g:syntastic_go_checkers = ['golangci_lint']
 let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint_d'
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_exec = 'eslint_d'
 
 " JSHint
-let jshint2_read = 1
-let jshint2_save = 1
-let jshint2_close = 0
-let jshint2_color = 0
-let jshint2_error = 0
-let jshint2_min_height = 3
-let jshint2_max_height = 12
+" let jshint2_read = 1
+" let jshint2_save = 1
+" let jshint2_close = 0
+" let jshint2_color = 0
+" let jshint2_error = 0
+" let jshint2_min_height = 3
+" let jshint2_max_height = 12
 
 " YCM
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:ycm_auto_hover = ''
-let s:enable_hover = 0
-let s:cursorhold_popup = -1
+" let g:ycm_autoclose_preview_window_after_completion=1
+" let g:ycm_key_list_stop_completion = ['<C-y>', '<CR>']
+" map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" let g:ycm_auto_hover = ''
+" let s:enable_hover = 0
+" let s:cursorhold_popup = -1
 
 " tern
-map <leader>j  :TernDef<CR>
-map <leader>jr  :TernRefs<CR>
-map <leader>jd  :TernDoc<CR>
-map <leader>jt  :TernType<CR>
-map <leader>jn  :TernRename<CR>
+" map <leader>j  :TernDef<CR>
+" map <leader>jr  :TernRefs<CR>
+" map <leader>jd  :TernDoc<CR>
+" map <leader>jt  :TernType<CR>
+" map <leader>jn  :TernRename<CR>
+
+" Mojo
+autocmd BufEnter *.mojo :setlocal filetype=python
+autocmd BufEnter *.🔥 :setlocal filetype=python
 
 " Grep configurations
 let Grep_Skip_Dirs = ".git"
@@ -219,12 +241,12 @@ let g:airline_powerline_fonts = 1
 " Transparent vim
 let g:seiya_auto_enable = 1
 
-let g:javascript_plugin_flow = 1
+" let g:javascript_plugin_flow = 1
 
 "enable keyboard shortcuts
-let g:tern_map_keys=1
+" let g:tern_map_keys=1
 "show argument hints
-let g:tern_show_argument_hints='on_hold'
+" let g:tern_show_argument_hints='on_hold'
 
 "FZF mappings
 nmap ; :Buffers<CR>
@@ -236,10 +258,10 @@ nmap <C-p> :Files<CR>
 au FileType javascript set dictionary+=$HOME/.vim/dict/node.dict
 
 "vim-nodejs-complete
-let g:nodejs_complete_config = {
-\  'js_compl_fn': 'jscomplete#CompleteJS',
-\  'max_node_compl_len': 15
-\}
+" let g:nodejs_complete_config = {
+" \  'js_compl_fn': 'jscomplete#CompleteJS',
+" \  'max_node_compl_len': 15
+" \}
 
 "spell check
 autocmd FileType mail setlocal spell spelllang=en_us
@@ -256,7 +278,7 @@ nmap ga <Plug>(EasyAlign)
 
 " Dart related configurations.
 let g:loaded_syntastic_dart_dartanalyzer_checker = 1
-let dart_format_on_save = 1
+let dart_format_on_save = 0 
 let dart_html_in_string=v:true
 let g:dart_style_guide = 2
 
@@ -270,3 +292,6 @@ let g:go_fmt_autosave = 0
 
 " Terraform
 let g:terraform_align=1
+
+" Rust
+let g:rust_clip_command = 'pbcopy'

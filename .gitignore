@@ -2,3 +2,4 @@
 *.*.swp
 /fonts
 .venv
+.DS_Store
